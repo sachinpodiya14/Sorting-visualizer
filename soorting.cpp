@@ -15,21 +15,21 @@
 
 using namespace std;
 
-// Product Structure
+
 struct Product {
     string name;
     int price;
     int stock;
 };
 
-// Color-coding by price
+
 string priceBar(int price) {
     if (price < 20) return "\033[32m"; // Green
     if (price < 50) return "\033[33m"; // Yellow
     return "\033[31m"; // Red
 }
 
-// Display function with visual bars
+
 void displayProducts(const vector<Product>& products, string sortBy) {
     system(CLEAR);
     cout << "Name\t\tPrice\tStock\tVisual\n";
@@ -42,7 +42,7 @@ void displayProducts(const vector<Product>& products, string sortBy) {
     this_thread::sleep_for(chrono::milliseconds(600));
 }
 
-// Sorting helper
+
 bool compare(const Product& a, const Product& b, string key) {
     if (key == "price") return a.price > b.price;
     if (key == "name") return a.name > b.name;
@@ -50,7 +50,7 @@ bool compare(const Product& a, const Product& b, string key) {
     return false;
 }
 
-// Bubble Sort
+
 void bubbleSort(vector<Product>& p, string key) {
     int n = p.size();
     for (int i = 0; i < n - 1; i++)
@@ -62,7 +62,7 @@ void bubbleSort(vector<Product>& p, string key) {
         }
 }
 
-// Selection Sort
+
 void selectionSort(vector<Product>& p, string key) {
     int n = p.size();
     for (int i = 0; i < n - 1; i++) {
@@ -79,7 +79,7 @@ void selectionSort(vector<Product>& p, string key) {
     }
 }
 
-// Insertion Sort
+
 void insertionSort(vector<Product>& p, string key) {
     int n = p.size();
     for (int i = 1; i < n; ++i) {
@@ -94,7 +94,7 @@ void insertionSort(vector<Product>& p, string key) {
     }
 }
 
-// Merge Sort helpers
+
 bool mergeCompare(const Product& a, const Product& b, const string& key) {
     if (key == "price") return a.price < b.price;
     if (key == "name") return a.name < b.name;
@@ -129,7 +129,7 @@ void mergeSort(vector<Product>& p, int l, int r, string key) {
     }
 }
 
-// Main Program
+
 int main() {
     vector<Product> products = {
         {"Soap", 40, 20},
